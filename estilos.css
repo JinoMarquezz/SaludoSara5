@@ -1,4 +1,5 @@
 /* General Styles */
+/* General Styles */
 body {
   display: flex;
   justify-content: center;
@@ -914,38 +915,4 @@ button:hover i:nth-child(11) {
   background: rgb(78, 2, 2);
   background: linear-gradient(270deg, rgba(78, 2, 2, 0.681) 0%, rgba(232, 31, 31, 0.873) 60%);
   color: rgb(38, 4, 4);
-}
-
-#fiesta-float-layer{
-  position: fixed;
-  inset: 0;
-  overflow: hidden;
-  pointer-events: none; /* no bloquea clicks en botones */
-  z-index: 800; /* encima de fondo/torta, por debajo del UI si lo deseas */
-}
-
-.fiesta-float-img{
-  position: absolute;
-  width: clamp(40px, 10vw, 70px);
-  height: auto;
-  opacity: 0.95;
-  will-change: transform;
-  user-select: none;
-  -webkit-user-drag: none;
-
-  /* Movimiento suave: lado a lado + sube/baja */
-  animation:
-    fiestaFloatX var(--durX, 6s) ease-in-out infinite alternate,
-    fiestaFloatY var(--durY, 4s) ease-in-out infinite alternate;
-  animation-delay: var(--delay, 0s);
-}
-
-@keyframes fiestaFloatX{
-  from { transform: translateX(calc(var(--ampX, 60px) * -1)); }
-  to   { transform: translateX(var(--ampX, 60px)); }
-}
-
-@keyframes fiestaFloatY{
-  from { transform: translateY(calc(var(--ampY, 35px) * -1)); }
-  to   { transform: translateY(var(--ampY, 35px)); }
 }
