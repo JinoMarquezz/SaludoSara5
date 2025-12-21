@@ -108,13 +108,13 @@ body::before {
     bottom: 485px; /* Espaciado específico */
   }
 
-    /* Botones */
-    #nostalgic-boton {
-      position: absolute;
-      bottom: 70px;
-      left: 145px;
-      transform: translate(-20%, 80px);
-    }
+   #nostalgic-boton{
+  position: fixed;              /* clave: misma referencia que fiesta */
+  left: 145px;                  /* NO cambió tu left */
+  bottom: 70px;                 /* NO cambió tu bottom base */
+  transform: translate(-20%, 140px); /* ✅ solo baja más para que quede debajo */
+  z-index: 2000;
+}
 
     #musica-container {  
       position: absolute;
@@ -123,6 +123,11 @@ body::before {
       left: 145px;
       transform: translate(-16%, 45px);
     }
+  #fiesta-boton .golden-button{
+  position: relative; /* ✅ evita que el botón se vaya por el absolute global */
+  top: auto;
+  right: auto;
+}
   }
 
 
