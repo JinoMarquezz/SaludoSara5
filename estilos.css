@@ -72,8 +72,6 @@ body::before {
 
 /* Estilos para pantallas de dispositivos móviles */
 @media only screen and (max-width: 500px) {
-  #fiesta-boton{ z-index: 3000; }
-#nostalgic-boton{ z-index: 2500; }
   /* Ajuste general del body */
   body {
     padding: 20px; /* Añade un poco de padding para dispositivos pequeños */
@@ -110,13 +108,13 @@ body::before {
     bottom: 485px; /* Espaciado específico */
   }
 
-   #nostalgic-boton{
-  position: fixed;              /* clave: misma referencia que fiesta */
-  left: 145px;                  /* NO cambió tu left */
-  bottom: 70px;                 /* NO cambió tu bottom base */
-  transform: translate(-20%, 140px); /* ✅ solo baja más para que quede debajo */
-  z-index: 2000;
-}
+    /* Botones */
+    #nostalgic-boton {
+      position: absolute;
+      bottom: 70px;
+      left: 145px;
+      transform: translate(-20%, 80px);
+    }
 
     #musica-container {  
       position: absolute;
@@ -125,11 +123,6 @@ body::before {
       left: 145px;
       transform: translate(-16%, 45px);
     }
-  #fiesta-boton .golden-button{
-  position: relative; /* ✅ evita que el botón se vaya por el absolute global */
-  top: auto;
-  right: auto;
-}
   }
 
 
