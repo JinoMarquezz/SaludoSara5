@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mensaje especial ❤️</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Dancing Script', cursive;
+      background: linear-gradient(135deg, #ffecd2, #fcb69f);
+      color: #444;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      text-align: center;
+      position: relative;
+    }
+
+    .messages {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .message {
+      font-size: 2rem;
+      line-height: 1.5;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+      .message.final {
+      position: absolute;
+      top: 50%;
+      left: -25%;
+      height: auto;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 3rem;
+      text-align: center;
+      color: transparent;
+      background: linear-gradient(90deg, #ff1e56, #ff414d, #ff1e1e, #e60000);
+      background-clip: text;
+      -webkit-background-clip: text;
+      text-shadow: 0 0 15px rgba(255, 30, 86, 0.9), 
+                  0 0 30px rgba(255, 30, 86, 0.7), 
+                  0 0 45px rgba(230, 0, 0, 0.6);
+      animation: gradient-shift 4s ease-in-out infinite, glow 2s infinite;
+      position: relative;
+      padding: 10px 20px;
+      border: 3px solid transparent;
+      border-image: linear-gradient(90deg, #ff1e56, #ff414d, #ff1e1e, #e60000);
+      border-image-slice: 1;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(255, 30, 86, 0.8);
+      transition: transform 0.3s, box-shadow 0.3s;
+      background-color: black;
+    }
+
+  .message.final:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 30px rgba(255, 30, 86, 0.9), 
+                0 0 45px rgba(255, 30, 86, 0.8), 
+                0 0 60px rgba(230, 0, 0, 0.7);
+  }
+
+  @keyframes gradient-shift {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  @keyframes glow {
+    0%, 100% {
+      text-shadow: 0 0 15px rgba(255, 30, 86, 0.9), 
+                  0 0 30px rgba(255, 30, 86, 0.7), 
+                  0 0 45px rgba(230, 0, 0, 0.6);
+    }
+    50% {
+      text-shadow: 0 0 30px rgba(255, 30, 86, 1), 
+                  0 0 45px rgba(255, 30, 86, 0.9), 
+                  0 0 60px rgba(230, 0, 0, 0.8);
+    }
+  }
+
+
+    .birthday-image {
+      position: absolute;
+      top: 10%;
+      left: 40%;
+      width: 300px;
+      height: auto;
+      border-radius: 50%;
+      box-shadow: 0px 10px 25px rgba(255, 0, 0, 0.3);
+      opacity: 0;
+      z-index: 2;
+    }
+
+    .message-with-smiley {
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .smiley {
+      margin-left: 10px;
+      font-size: 3rem;
+      transform: rotate(0deg);
+      animation: smiley-rotate 2s linear infinite;
+      opacity: 1;
+    }
+
+    @keyframes smiley-rotate {
+      0% {
+        transform: rotate(0deg);
+      }
+      50% {
+        transform: rotate(90deg);
+      }
+      100% {
+        transform: rotate(180deg);
+      }
+    }
+
+    .baloons img {
+      position: absolute;
+      width: 150px;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .baloons img:nth-child(1) {
+      left: 10%;
+      animation-delay: 0s;
+    }
+
+    .baloons img:nth-child(2) {
+      left: 50%;
+      animation-delay: 2s;
+    }
+
+    .baloons img:nth-child(3) {
+      left: 80%;
+      animation-delay: 4s;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-50px);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+
+    .stars {
+      position: absolute;
+      width: 5px;
+      height: 5px;
+      background: #fff;
+      border-radius: 50%;
+      opacity: 0.8;
+      box-shadow: 0 0 10px #fff;
+      animation: twinkle 2s infinite ease-in-out;
+    }
+
+    @keyframes twinkle {
+      0%, 100% {
+        opacity: 0.8;
+      }
+      50% {
+        opacity: 0.4;
+      }
+    }
+
+    .confetti {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: #f91d42;
+      opacity: 0.8;
+      border-radius: 50%;
+      animation: fall 4s linear infinite;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-100vh) translateX(0);
+      }
+      100% {
+        transform: translateY(100vh) translateX(200px);
+      }
+    }
+
+     /* Estilos para pantallas de dispositivos móviles */
+  @media only screen and (max-width: 500px) {
+    .message {
+      font-size: 1.5rem;
+    }
+
+    .message.final {
+      top: 5%;
+      left: 1%;
+      font-size: 2rem;
+    }
+
+    .birthday-image {
+      width: 300px;
+      top: 1%;
+      left: 20%;
+    }
+
+    .baloons img {
+      width: 100px;
+    }
+
+    .container {
+      gap: 10px;
+    }
+  }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="messages">
+      <p class="message">Hola Sara,</p>
+      <p class="message">Queria darte algo mas porque siempre mereces algo especial...</p>
+      <p class="message">De programador a Licenciada, quería hacer algo especial para ti.</p>
+      <p class="message">¡Así que decidí crear esta página como un pequeño detalle!</p>
+      <p class="message">Espero que te guste mucho y que sigas siendo la vela que ilumina a un mejor futuro.</p>
+      <p class="message message-with-smiley">Siempre apunta a lo más alto, que estoy seguro que lo lograrás 
+        <span class="smiley">:)</span>
+      </p>      
+      <p class="message final">¡FELIZ CUMPLEAÑOS! ❤️</p>
+    </div>
+
+    <img src="img/gigachad.jpg" alt="Isaac" class="birthday-image">
+
+    <div class="baloons">
+      <img src="img/ballon2.svg" alt="">
+      <img src="img/ballon1.svg" alt="">
+      <img src="img/ballon3.svg" alt="">
+    </div>
+  </div>
+
+
+  <div class="confetti-container">
+    <div class="confetti" style="top: -20px; left: 20%; animation-delay: 0s;"></div>
+    <div class="confetti" style="top: -30px; left: 40%; animation-delay: 0.5s;"></div>
+    <div class="confetti" style="top: -40px; left: 60%; animation-delay: 1s;"></div>
+    <div class="confetti" style="top: -50px; left: 80%; animation-delay: 1.5s;"></div>
+  </div>
+
+  <div class="stars" style="top: 20%; left: 30%; animation-delay: 0s;"></div>
+  <div class="stars" style="top: 40%; left: 50%; animation-delay: 1s;"></div>
+  <div class="stars" style="top: 60%; left: 70%; animation-delay: 0.5s;"></div>
+  <div class="stars" style="top: 10%; left: 90%; animation-delay: 1.5s;"></div>
+</div>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const messages = document.querySelectorAll('.message');
+      const image = document.querySelector('.birthday-image');
+      const container = document.querySelector('.container');
+
+      const timeline = gsap.timeline();
+
+      // Animar los mensajes
+      messages.forEach((message, index) => {
+        timeline.to(message, {
+          opacity: 1,
+          y: 0,
+          duration: 1.7,
+          ease: "power2.out"
+        });
+
+        if (index < messages.length - 1) {
+          timeline.to(message, {
+            opacity: 0,
+            y: -20,
+            duration: 1.1,
+            delay: 0.75,
+            ease: "power2.in"
+          });
+        }
+      });
+
+      // Mostrar imagen final y añadir confeti
+      timeline.to(image, {
+        opacity: 1,
+        duration: 1.5,
+        onComplete: () => addConfetti(container)
+      });
+    });
+
+    // Función para añadir confeti
+    function addConfetti(container) {
+      for (let i = 0; i < 50; i++) {
+        const confetti = document.createElement('div');
+        confetti.classList.add('confetti');
+        confetti.style.left = Math.random() * 100 + '%';
+        confetti.style.animationDelay = Math.random() * 2 + 's';
+        container.appendChild(confetti);
+
+        setTimeout(() => confetti.remove(), 4000); // Eliminar después de 4 segundos
+      }
+    }
+  </script>
+</body>
+
+</html>
