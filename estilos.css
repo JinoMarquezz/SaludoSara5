@@ -101,47 +101,29 @@ body::before {
     letter-spacing: 2px; /* Reduce el espaciado */
   }
   /* Botones */
- /* ==============================
-   MÓVIL: 3 BOTONES SIN SUPERPONERSE
-   (PC no cambia porque esto solo vive en el @media)
-================================ */
+  #fiesta-boton{
+    position: fixed;
+    bottom: auto;
+    left: 300px;
+    transform: translate(-100%, -50px);
+    bottom: 485px; /* Espaciado específico */
+  }
 
-/* 1) PRENDER Fiesta: lo subo un poco (queda arriba de los otros) */
-#fiesta-boton{
-  position: fixed;
-  left: 50%;
-  bottom: 140px;              /* ✅ aquí lo "subes un poco" */
-  transform: translateX(-50%);
-  z-index: 3000;
-}
+    /* Botones */
+    #nostalgic-boton {
+      position: absolute;
+      bottom: 70px;
+      left: 145px;
+      transform: translate(-20%, 80px);
+    }
 
-/* IMPORTANTE: en móvil, la golden-button NO debe ser absolute,
-   si no se sale del contenedor y se cruza con todo */
-#fiesta-boton .golden-button{
-  position: relative !important;
-  top: auto !important;
-  right: auto !important;
-}
-
-/* 2) Chill out / Música: debajo de Fiesta */
-#musica-container{
-  position: fixed;
-  left: 50%;
-  bottom: 86px;
-  transform: translateX(-50%);
-  width: auto;               /* ✅ quita el width:100% que invade */
-  z-index: 2000;
-}
-
-/* 3) Mensaje: el último abajo */
-#nostalgic-boton{
-  position: fixed;
-  left: 50%;
-  bottom: 24px;
-  transform: translateX(-50%);
-  z-index: 1000;
-}
-
+    #musica-container {  
+      position: absolute;
+      width: 100%;
+      bottom: 25px;
+      left: 145px;
+      transform: translate(-16%, 45px);
+    }
   }
 
 
