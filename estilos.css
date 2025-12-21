@@ -101,25 +101,21 @@ body::before {
   }
   /* Botones */
 /* 1) El contenedor del botón Fiesta (abajo) */
-    #fiesta-boton{
-      position: fixed;
-      bottom: auto;
-      left: 300px;
-      transform: translate(-100%, -50px);
-      bottom: 485px;
-      z-index: 5000; /* ✅ asegura que no quede detrás */
-    }
+   #fiesta-boton{
+    position: fixed;
+    bottom: auto;
+    left: 300px;
+    transform: translate(-100%, -50px);
+    bottom: 485px; /* Espaciado específico */
+  }
 
-  /* 2) El botón Mensaje justo encima (sin tapar) */
-    #nostalgic-boton{
-  position: fixed !important;
-  top: calc(env(safe-area-inset-top) + 14px) !important;
-  right: clamp(12px, 6vw, 40px) !important;
-  left: auto !important;
-  bottom: auto !important;
-  transform: none !important;
-  z-index: 6000 !important;
-}
+    /* Botones */
+    #nostalgic-boton {
+      position: absolute;
+      bottom: 70px;
+      left: 145px;
+      transform: translate(-20%, 80px);
+    }
 
 
     #musica-container {  
