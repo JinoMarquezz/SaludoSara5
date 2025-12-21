@@ -106,6 +106,7 @@ body::before {
     left: 300px;
     transform: translate(-100%, -50px);
     bottom: 485px; /* Espaciado específico */
+    z-index: 9999;
   }
 
     /* Botones */
