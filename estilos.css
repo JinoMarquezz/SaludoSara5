@@ -73,7 +73,7 @@ body::before {
 /* Estilos para pantallas de dispositivos móviles */
 @media only screen and (max-width: 500px) {
   #fiesta-boton{ z-index: 3000; }
-#nostalgic-boton{ z-index: 2000; }
+#nostalgic-boton{ z-index: 2500; }
   /* Ajuste general del body */
   body {
     padding: 20px; /* Añade un poco de padding para dispositivos pequeños */
