@@ -111,17 +111,15 @@ body::before {
     }
 
   /* 2) El botón Mensaje justo encima (sin tapar) */
-  #nostalgic-boton{
-  position: fixed;
-  top: calc(env(safe-area-inset-top) + 14px);
-  right: 90px;
-
-  left: auto;
-  bottom: auto;
-  transform: none;
-
-  z-index: 6000; /* ✅ por encima de todo */
-}
+    #nostalgic-boton{
+      position: fixed;
+      top: calc(env(safe-area-inset-top) + 14px);
+      right: 20px;        /* puedes subir/bajar este valor */
+      left: auto;
+      bottom: auto;
+      transform: none;
+      z-index: 6000;
+    }
 
 
     #musica-container {  
