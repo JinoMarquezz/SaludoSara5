@@ -101,22 +101,28 @@ body::before {
   }
   /* Botones */
 /* 1) El contenedor del botón Fiesta (abajo) */
-  #fiesta-boton{
-    position: fixed;
-    left: 50%;
-    bottom: 16px;
-    transform: translateX(-50%);
-    z-index: 3000;
-  }
+    #fiesta-boton{
+      position: fixed;
+      bottom: auto;
+      left: 300px;
+      transform: translate(-100%, -50px);
+      bottom: 485px;
+      z-index: 5000; /* ✅ asegura que no quede detrás */
+    }
 
   /* 2) El botón Mensaje justo encima (sin tapar) */
   #nostalgic-boton{
-    position: fixed;
-    left: 50%;
-    bottom: 88px;          /* separación para que no choque con Fiesta */
-    transform: translateX(-50%);
-    z-index: 3001;
-  }
+  position: fixed;
+  top: calc(env(safe-area-inset-top) + 14px);
+  right: 14px;
+
+  left: auto;
+  bottom: auto;
+  transform: none;
+
+  z-index: 6000; /* ✅ por encima de todo */
+}
+
 
     #musica-container {  
       position: absolute;
@@ -362,7 +368,7 @@ button:hover i:nth-child(11) {
   background-position: center;
   
   /* Posicionamiento en la esquina inferior izquierda */
-  position: static ; /* Cambiar de relative a absolute */
+  position: absolute;
   top: auto ; /* Ajusta el valor según lo necesites */
   right: auto ; /* Ajusta el valor para la distancia al borde derecho */
   z-index: 1000;
