@@ -1,10 +1,173 @@
 <!doctype html>
 <html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta http-equiv="refresh" content="0; url=cumple.html" />
-    <title>Saludo</title>
-  </head>
-  <body></body>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0b1020" />
+  <meta name="color-scheme" content="dark" />
+
+  <title>Feliz Navidad, Sara ✨</title>
+  <meta name="description" content="Tarjeta navideña interactiva para Sara Guevara (Enfermería)." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <!-- Fondo animado (nieve / brillos) -->
+  <canvas id="fx" aria-hidden="true"></canvas>
+
+  <header class="topbar" aria-label="Barra superior">
+    <div class="brand" aria-label="Navidad">
+      <span class="brand__dot" aria-hidden="true"></span>
+      <span class="brand__text">Tarjeta navideña</span>
+    </div>
+
+    
+
+      <!-- NUEVO: Música -->
+      <button class="btn btn--ghost" id="btnMusic" type="button" aria-label="Reproducir o pausar música">
+        <span class="icon" aria-hidden="true">♫</span>
+        <span>Música</span>
+      </button>
+
+      <button class="btn btn--ghost" id="btnToggleFx" type="button" aria-label="Activar o desactivar animación">
+        <span class="icon" aria-hidden="true">❄</span>
+        <span>Animación</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="stage" aria-label="Tarjeta de Navidad">
+    <section class="wrap">
+      <div class="headline">
+        <div class="badge" aria-label="Dedicatoria">
+          <span class="badge__icon" aria-hidden="true">🎁</span>
+          <span>Para <strong id="toName">Sara Guevara</strong> · Futura Gran Enfermera</span>
+        </div>
+        <h1 class="h1">Feliz Navidad y Prospero Año Nuevo<span class="spark">✨</span></h1>
+        <p class="sub">Un saludo con mucho cariño, con un pequeño detalle interactivo de mi habilidad con el codigo.</p>
+      </div>
+
+      <!-- TARJETA 3D -->
+      <div class="card" id="card" role="group" aria-label="Tarjeta interactiva">
+        <button class="card__toggle" id="cardToggle" type="button" aria-label="Abrir tarjeta">
+          <span class="card__toggleHint">Toca para abrir</span>
+        </button>
+
+        <!-- Cubierta (frontal) -->
+        <div class="card__cover" aria-hidden="true">
+          <div class="cover__img" role="img" aria-label="Imagen navideña"></div>
+          <div class="cover__overlay">
+            <div class="cover__title">
+              <span class="cover__titleTop">Para</span>
+              <span class="cover__titleName" id="coverName">Sara</span>
+            </div>
+            <div class="cover__subtitle">Toca para abrir</div>
+          </div>
+          <div class="lights" aria-hidden="true">
+            <span></span><span></span><span></span><span></span><span></span>
+          </div>
+        </div>
+
+        <!-- Interior -->
+        <div class="card__inside">
+          <div class="inside__paper" role="document" aria-label="Mensaje" aria-hidden="true">
+            <div class="inside__bg" aria-hidden="true"></div>
+
+            <div class="inside__content">
+              <div class="inside__row">
+                <div class="seal" aria-hidden="true">
+                  <svg viewBox="0 0 120 120" width="88" height="88" role="img" aria-label="Sello de Enfermería">
+                    <defs>
+                      <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+                        <stop offset="0" stop-color="#8ef0ff"/>
+                        <stop offset="1" stop-color="#7c5cff"/>
+                      </linearGradient>
+                    </defs>
+                    <circle cx="60" cy="60" r="54" fill="none" stroke="url(#g)" stroke-width="6" opacity="0.9"/>
+                    <circle cx="60" cy="60" r="46" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.18)" stroke-width="2"/>
+                    <rect x="53" y="30" width="14" height="60" rx="5" fill="url(#g)"/>
+                    <rect x="30" y="53" width="60" height="14" rx="5" fill="url(#g)"/>
+                    <path d="M60 86c-18-10-28-20-28-33 0-8 6-14 14-14 6 0 10 3 14 8 4-5 8-8 14-8 8 0 14 6 14 14 0 13-10 23-28 33z" fill="rgba(255,255,255,0.9)" opacity="0.9"/>
+                  </svg>
+                </div>
+
+                <div class="inside__meta">
+                  <p class="kicker">Navidad · <span id="today"></span></p>
+                  <h2 class="h2">Sara, que esta Navidad te abrace bonito</h2>
+                  <p class="lead" id="typed">
+                    <span class="sr-only">Mensaje de Navidad</span>
+                  </p>
+                </div>
+              </div>
+
+              <div class="divider" aria-hidden="true"></div>
+
+              <div class="grid">
+                <div class="cardlet">
+                  <div class="cardlet__icon" aria-hidden="true">🩺</div>
+                  <h3>Vocación que inspira</h3>
+                  <p>
+                    Estudiar enfermería es elegir cuidar: con ciencia, paciencia y corazón.
+                    Gracias por lo que estás construyendo.
+                  </p>
+                </div>
+
+                <div class="cardlet">
+                  <div class="cardlet__icon" aria-hidden="true">🎄</div>
+                  <h3>Que nunca falte la calma</h3>
+                  <p>
+                    Entre prácticas, turnos y metas, ojalá tengas descanso, familia cerca y motivos para sonreír.
+                  </p>
+                </div>
+
+                <div class="cardlet">
+                  <div class="cardlet__icon" aria-hidden="true">✨</div>
+                  <h3>De mi parte</h3>
+                  <p>
+                    Sabes que te quiero y aunque ahora no sea correspondido solo quiero demostrartelo sin nada a cambio. 
+                    quizas en un futuro o en otra via sea diferente y exista un nosotros.
+                  </p>
+                </div>
+              </div>
+
+              <div class="signature">
+                <p class="signature__line">
+                  Con cariño,<nobr> <strong id="fromName">tu amigo</strong></nobr>
+                </p>
+                <p class="signature__hint">De: <code>Jino Marquez</code></p>
+
+                <div class="signature__actions">
+                  <button class="btn" id="btnClose" type="button" aria-label="Cerrar tarjeta">Cerrar</button>
+                  <button class="btn btn--primary" id="btnBurst" type="button" aria-label="Lanzar confeti">Confeti ✨</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="shadow" aria-hidden="true"></div>
+        </div>
+      </div>
+
+      <footer class="footer">
+        <p class="footer__text">
+          Hecho con cariño. Ahora si 100% compatible con celular y PC xd.
+        </p>
+      </footer>
+    </section>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- NUEVO: Música real (pon tu mp3 en assets/musica.mp3) -->
+  <audio id="bgm" preload="auto" loop>
+    <source src="assets/musica.mp3" type="audio/mpeg">
+  </audio>
+
+  <script src="script.js"></script>
+</body>
 </html>
